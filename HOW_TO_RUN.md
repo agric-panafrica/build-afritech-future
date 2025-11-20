@@ -4,7 +4,7 @@ This guide explains how to run the Afritech Capital Ghana web application locall
 
 ## Prerequisites
 
-- **Node.js** (v16 or higher) - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Node.js** (v18 or higher recommended) - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 - **npm** (comes with Node.js)
 
 ## Quick Start
@@ -87,7 +87,7 @@ Creates a development build with source maps.
 - **TypeScript** - Type-safe JavaScript
 - **Tailwind CSS** - Utility-first CSS framework
 - **shadcn/ui** - UI component library
-- **React Router** - Client-side routing
+- **React Router DOM** - Client-side routing
 
 ## Troubleshooting
 
