@@ -2,83 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --background: 42 38% 97%;
+    --foreground: 210 24% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 210 24% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 210 24% 9%;
 
-    --primary: 155 60% 25%;
+    --primary: 151 100% 24%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 48 100% 54%;
+    --secondary-foreground: 210 24% 9%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 40 16% 92%;
+    --muted-foreground: 210 12% 38%;
 
-    --accent: 45 75% 60%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 48 100% 54%;
+    --accent-foreground: 210 24% 9%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 355 86% 52%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 155 60% 25%;
+    --border: 40 12% 86%;
+    --input: 40 12% 86%;
+    --ring: 151 100% 24%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --hero-gradient-start: 155 60% 25%;
-    --hero-gradient-end: 155 50% 35%;
-    
-    --gold-shine: 45 85% 65%;
-    
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --brand-green: 151 100% 24%;
+    --brand-yellow: 48 100% 54%;
+    --brand-red: 355 86% 52%;
+    --brand-ink: 210 24% 9%;
+
+    --hero-gradient-start: 151 100% 16%;
+    --hero-gradient-end: 151 70% 28%;
+
+    --gold-shine: 48 100% 54%;
+
+    --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
+    --background: 210 24% 9%;
+    --foreground: 42 38% 97%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 210 10% 11%;
+    --card-foreground: 40 20% 96%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 210 10% 11%;
+    --popover-foreground: 40 20% 96%;
 
-    --primary: 155 55% 35%;
+    --primary: 151 78% 34%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 48 100% 54%;
+    --secondary-foreground: 210 12% 7%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 210 8% 14%;
+    --muted-foreground: 40 12% 72%;
 
-    --accent: 45 70% 55%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 48 100% 54%;
+    --accent-foreground: 210 12% 7%;
 
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 355 80% 56%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 155 55% 35%;
+    --border: 210 8% 18%;
+    --input: 210 8% 18%;
+    --ring: 151 78% 34%;
 
-    --hero-gradient-start: 155 55% 20%;
-    --hero-gradient-end: 155 50% 30%;
-    
-    --gold-shine: 45 75% 60%;
+    --brand-green: 151 78% 34%;
+    --brand-yellow: 48 100% 54%;
+    --brand-red: 355 80% 56%;
+    --brand-ink: 210 24% 9%;
+
+    --hero-gradient-start: 151 82% 14%;
+    --hero-gradient-end: 151 70% 24%;
+
+    --gold-shine: 48 100% 54%;
   }
 }
 
@@ -88,11 +94,11 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+    @apply font-bold text-foreground/95;
   }
 }
 
@@ -100,40 +106,78 @@ All colors MUST be HSL.
   .gradient-hero {
     background: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
   }
-  
+
+  .brand-rule {
+    background: linear-gradient(90deg, hsl(var(--brand-green)) 0 45%, hsl(var(--brand-yellow)) 45% 72%, hsl(var(--brand-red)) 72% 100%);
+  }
+
+  .section-kicker {
+    @apply mb-3 text-xs font-semibold uppercase text-primary;
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
-  
+
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out;
+
+  .shadow-premium-sm {
+    box-shadow:
+      0px 0px 0px 1px rgba(0, 0, 0, 0.03),
+      0px 1px 2px -1px rgba(0, 0, 0, 0.03),
+      0px 2px 4px 0px rgba(0, 0, 0, 0.02);
   }
-  
-  .animate-slide-up {
-    animation: slide-up 0.6s ease-out;
+
+  .shadow-premium {
+    box-shadow:
+      0px 0px 0px 1px rgba(0, 0, 0, 0.05),
+      0px 2px 4px -2px rgba(0, 0, 0, 0.05),
+      0px 4px 12px 0px rgba(0, 0, 0, 0.03);
+  }
+
+  .dark .shadow-premium-sm {
+    box-shadow:
+      0px 0px 0px 1px rgba(255, 255, 255, 0.03),
+      0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .shadow-premium {
+    box-shadow:
+      0px 0px 0px 1px rgba(255, 255, 255, 0.05),
+      0px 4px 16px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .animate-fade-in-blur {
+    animation: fade-in-blur 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-up-blur {
+    animation: slide-up-blur 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
 
-@keyframes fade-in {
+@keyframes fade-in-blur {
   from {
     opacity: 0;
+    filter: blur(4px);
   }
   to {
     opacity: 1;
+    filter: blur(0px);
   }
 }
 
-@keyframes slide-up {
+@keyframes slide-up-blur {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0px);
   }
 }

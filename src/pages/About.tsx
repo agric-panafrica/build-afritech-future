@@ -1,123 +1,184 @@
 import { Target, Eye, Award } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { motion, type Variants } from 'framer-motion';
 import cityscapeImage from '@/assets/african-cityscape.jpg';
-import innovationSpaceImage from '@/assets/innovation-space.jpg';
+import workspaceImage from '@/assets/innovation-space.jpg';
 
 const About = () => {
   const values = [
-    { icon: <Target className="h-10 w-10" />, title: 'Innovation', description: 'We champion bold ideas that push boundaries and create new possibilities.' },
-    { icon: <Award className="h-10 w-10" />, title: 'Integrity', description: 'We build trust through transparency, honesty, and ethical practices.' },
-    { icon: <Eye className="h-10 w-10" />, title: 'Impact', description: 'We measure success by the positive change we create in communities.' },
+    { number: '01', icon: <Target className="h-6 w-6 text-primary" />, title: 'Evidence', description: 'We turn assumptions into numbers, milestones, and investor-ready proof.' },
+    { number: '02', icon: <Award className="h-6 w-6 text-brand-ink dark:text-brand-yellow" />, title: 'Discipline', description: 'We keep the model, deck, and fundraising plan aligned.' },
+    { number: '03', icon: <Eye className="h-6 w-6 text-brand-red" />, title: 'Clarity', description: 'We help founders answer hard investor questions without losing the story.' },
   ];
 
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      }
+    }
+  };
+
+  const itemFadeUp: Variants = {
+    hidden: { opacity: 0, y: 15, filter: 'blur(3px)' },
+    show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', duration: 0.5, bounce: 0 } }
+  };
+
   return (
-    <div className="pt-16">
+    <div className="pt-24 pb-12">
       {/* Hero Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="bg-muted/10 py-20 border-b border-border/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Who We Are</h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Afritech Capital Ghana is a business advisory firm focused on helping African tech founders 
-              prepare for successful fundraising.
+          <motion.div
+            initial={{ opacity: 0, y: 15, filter: 'blur(3px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-4xl text-center"
+          >
+            <p className="section-kicker">About Afritech</p>
+            <h1 className="mb-6 text-4xl font-extrabold sm:text-5xl lg:text-6xl">
+              Built for founders raising serious capital.
+            </h1>
+            <p className="text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
+              Afritech Capital Ghana is an Accra-based advisory firm for African tech founders preparing for seed, pre-series, and growth conversations.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto space-y-16">
+          <div className="max-w-6xl mx-auto space-y-24">
+
             {/* Text + Image Grid */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="animate-slide-up">
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  We help African founders bridge the gap between their innovative ideas and investor funding. 
-                  Through expert business strategy, financial modeling, pitch deck development, and fundraising 
-                  guidance, we prepare founders to present compelling cases to investors and successfully 
-                  secure the capital they need to grow.
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <motion.div
+                initial={{ opacity: 0, x: -20, filter: 'blur(3px)' }}
+                whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
+                <h2 className="text-2xl font-bold text-foreground md:text-3xl">Operating Context, Investor Process</h2>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Founders come to us when the product works but the raise still feels loose. We pressure-test the business model, clean up financial projections, and shape the investor story around proof.
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Based in Accra's thriving tech ecosystem, we understand both the unique challenges African 
-                  founders face and what global investors look for when evaluating opportunities.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Our work sits between the African operating context and the investor diligence process. That means we ask practical questions about customers, regulation, margins, governance, and the path to scale.
                 </p>
-              </div>
-              
-              <div className="animate-slide-up">
-                <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                  <img 
-                    src={cityscapeImage} 
-                    alt="Modern African cityscape showing urban development and innovation in Accra, Ghana"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20, filter: 'blur(3px)' }}
+                whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="relative overflow-hidden rounded-lg border border-border/40 shadow-premium"
+              >
+                <img
+                  src={cityscapeImage}
+                  alt="Accra skyline at sunset"
+                  className="w-full h-auto object-cover transition-transform"
+                  style={{ transitionDuration: '8000ms' }}
+                />
+              </motion.div>
             </div>
 
             {/* Mission & Vision Cards */}
-            <div className="grid md:grid-cols-2 gap-8 animate-slide-up">
-              <Card className="border-2 border-primary/20">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-primary">Mission</h3>
-                  <p className="text-muted-foreground">
-                    To empower African founders to successfully raise capital by equipping them with the 
-                    strategy, tools, and guidance needed to secure funding and build solutions for a better, 
-                    connected future.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="p-8 rounded-lg border border-primary/10 bg-primary/[0.02] dark:bg-primary/[0.04]"
+              >
+                <span className="text-[10px] font-bold uppercase text-primary">Core Purpose</span>
+                <h3 className="text-2xl font-extrabold mt-2 mb-4 text-foreground">Mission</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Help African founders prepare for investor scrutiny with stronger strategy, cleaner numbers, and sharper fundraising materials.
+                </p>
+              </motion.div>
 
-              <Card className="border-2 border-accent/20">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-4 text-accent">Vision</h3>
-                  <p className="text-muted-foreground">
-                    A continent where technology drives opportunity for all.
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="p-8 rounded-lg border border-accent/10 bg-accent/[0.02] dark:bg-accent/[0.04]"
+              >
+                <span className="text-[10px] font-bold uppercase text-brand-ink dark:text-brand-yellow">Strategic Aim</span>
+                <h3 className="text-2xl font-extrabold mt-2 mb-4 text-foreground">Vision</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  More African startups closing the right capital on terms they understand.
+                </p>
+              </motion.div>
             </div>
 
             {/* Innovation Space Image */}
-            <div className="animate-slide-up">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img 
-                  src={innovationSpaceImage} 
-                  alt="African tech innovation hub with entrepreneurs and developers collaborating in modern workspace"
-                  className="w-full h-auto object-cover"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-4"
+            >
+              <div className="relative overflow-hidden rounded-lg border border-border/40 shadow-premium">
+                <img
+                  src={workspaceImage}
+                  alt="Founders working together in a modern workspace"
+                  className="w-full h-auto object-cover transition-transform"
+                  style={{ transitionDuration: '8000ms' }}
                 />
               </div>
-              <p className="text-center text-sm text-muted-foreground mt-4">
-                Our ecosystem: Where Africa's brightest minds build the future
+              <p className="text-center text-xs font-medium text-muted-foreground">
+                Founder work needs room for the numbers, the story, and the uncomfortable questions.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="bg-muted/20 py-24 border-t border-border/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Values</h2>
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <p className="section-kicker">How we work</p>
+            <h2 className="mb-4 text-3xl font-extrabold sm:text-4xl text-foreground">Useful advice beats polished noise.</h2>
             <p className="text-lg text-muted-foreground">
-              Principles that guide everything we do
+              We focus on the parts of a raise that investors test first.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          >
             {values.map((value, index) => (
-              <Card key={index} className="hover:shadow-lg transition-smooth animate-slide-up">
-                <CardContent className="p-8 text-center">
-                  <div className="flex justify-center text-primary mb-4">
+              <motion.div
+                key={index}
+                variants={itemFadeUp}
+                className="flex flex-col justify-between p-8 rounded-lg bg-background border border-border/45 shadow-premium-sm relative overflow-hidden group"
+              >
+                <div className="absolute top-4 right-6 text-5xl font-extrabold text-muted/20 select-none group-hover:text-accent/15 transition-colors">
+                  {value.number}
+                </div>
+                <div className="space-y-4">
+                  <div className="p-2.5 rounded-lg bg-muted/30 w-fit">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </CardContent>
-              </Card>
+                  <h3 className="text-xl font-bold text-foreground">{value.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{value.description}</p>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

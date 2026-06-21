@@ -4,7 +4,7 @@ This guide explains how to run the Afritech Capital Ghana web application locall
 
 ## Prerequisites
 
-- **Node.js** (v18 or higher recommended) - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Node.js** (^20.19.0 or >=22.12.0) - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 - **npm** (comes with Node.js)
 
 ## Quick Start
@@ -31,7 +31,7 @@ The application will start and be available at:
 
 You should see output similar to:
 ```
-VITE v5.4.19  ready in 431 ms
+VITE v8.x  ready in 431 ms
 
 ➜  Local:   http://localhost:8080/
 ➜  Network: http://10.1.0.100:8080/

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -49,6 +50,12 @@ export default {
         },
         gold: {
           DEFAULT: "hsl(var(--gold-shine))",
+        },
+        brand: {
+          green: "hsl(var(--brand-green))",
+          yellow: "hsl(var(--brand-yellow))",
+          red: "hsl(var(--brand-red))",
+          ink: "hsl(var(--brand-ink))",
         }
       },
       fontFamily: {
@@ -83,5 +90,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 } satisfies Config;
