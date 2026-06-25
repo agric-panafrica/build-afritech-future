@@ -9,8 +9,15 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { toast } from 'sonner';
 import { motion, type Variants } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 
 const Contact = () => {
+  useSEO({
+    title: 'Contact - Afritech Capital Ghana',
+    description: 'Schedule a private consultation with Afritech Capital Ghana. Submit your pitch materials or fundraising questions for feedback.',
+    image: '/opengraphImage.png',
+  });
+
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRnvvf4C_8E-uUVXFQv8eZ3TkLLXzucUyxKUQuwY3tE9Dwrcb6DEOvtTw_W-YfJbFB/exec';
   const linkedInUrl = 'https://www.linkedin.com/in/samuel-baah-9a8500192?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app';
 

@@ -1,10 +1,16 @@
 import { Target, Eye, Award } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { motion, type Variants } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 import cityscapeImage from '@/assets/african-cityscape.jpg';
 import workspaceImage from '@/assets/innovation-space.jpg';
 
 const About = () => {
+  useSEO({
+    title: 'About - Afritech Capital Ghana',
+    description: 'Accra-based advisory firm helping African tech founders prepare for investor scrutiny with stronger strategy, cleaner numbers, and sharper fundraising materials.',
+    image: '/opengraphImage.png',
+  });
   const values = [
     { number: '01', icon: <Target className="h-6 w-6 text-primary" />, title: 'Evidence', description: 'We turn assumptions into numbers, milestones, and investor-ready proof.' },
     { number: '02', icon: <Award className="h-6 w-6 text-brand-ink dark:text-brand-yellow" />, title: 'Discipline', description: 'We keep the model, deck, and fundraising plan aligned.' },

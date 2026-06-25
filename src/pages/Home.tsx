@@ -3,9 +3,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, BarChart3, FileText, Handshake, TrendingUp, Sprout, Heart, Cpu, Zap } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 import heroImage from '@/assets/hero-image.jpg';
 
 const Home = () => {
+  useSEO({
+    title: 'Afritech Capital Ghana - Investor Readiness Advisory',
+    description: 'We help African tech founders prepare the strategy, financial model, and pitch materials investors expect before a serious raise.',
+    image: '/opengraphImage.png',
+  });
+
   const readinessServices = [
     { icon: <BarChart3 className="h-4 w-4 text-accent" />, label: 'Clean numbers' },
     { icon: <FileText className="h-4 w-4 text-accent" />, label: 'Investor materials' },

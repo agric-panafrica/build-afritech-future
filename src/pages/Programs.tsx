@@ -1,7 +1,14 @@
 import { Target, TrendingUp, FileText, Users } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 
 const Programs = () => {
+  useSEO({
+    title: 'Services - Afritech Capital Ghana',
+    description: 'Our custom fundraising readiness advisory services including investor strategy, financial modeling, pitch material development, and mock diligence.',
+    image: '/opengraphImage.png',
+  });
+
   const programs = [
     {
       icon: <Target className="h-6 w-6 text-primary" />,

@@ -3,8 +3,15 @@ import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Sprout, Heart } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
+import { useSEO } from '@/hooks/useSEO';
 
 const Portfolio = () => {
+  useSEO({
+    title: 'Portfolio - Afritech Capital Ghana',
+    description: 'Explore the African tech startups and founders Afritech Capital Ghana has prepared for successful fundraises and investor diligence.',
+    image: '/opengraphImage.png',
+  });
+
   const startups = [
     {
       name: 'PayLink',

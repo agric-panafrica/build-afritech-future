@@ -3,6 +3,7 @@ import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { useSEO } from '@/hooks/useSEO';
 import {
   Dialog,
   DialogClose,
@@ -156,6 +157,12 @@ const shareArticle = async (article: Article) => {
 };
 
 const Articles = () => {
+  useSEO({
+    title: 'Research & Notes - Afritech Capital Ghana',
+    description: 'Notes on capital, founders, strategy, and market proof for African tech startups and investors.',
+    image: '/opengraphImage.png',
+  });
+
   const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
